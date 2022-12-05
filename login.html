@@ -64,7 +64,6 @@
         <ul>
           <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
           <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-          <li><a class="nav-link scrollto" href="team.html">Team</a></li>
           <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -94,7 +93,9 @@
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
 
             <center>
-            <button class="btn btn-primary btn-login btn-login2 mt-5" onclick="window.location.href='login.html'">Login</button>
+              <p id="invalida"  class="mt-1" style="color: red"></p>
+                      <a id="myButton" class="btn btn-primary btn-login3 btn-login2" onclick="goSite()">Login</a>
+
           </center>
           </form>
           <br>
@@ -106,6 +107,7 @@
           <br>
           <br>
       </div>
+      <a href="https://drive.google.com/drive/folders/12Q-tdPyXIdeDr89uTbx3Xu4JStapLWz0?usp=sharing">abcd</a>
     </section><!-- End Why Us Section -->
 
 
@@ -124,6 +126,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -134,7 +137,35 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
 
+    function goSite(){
+            var elem = document.getElementById('inputPassword');
+            var email = document.getElementById('inputEmail');
+            var elem2 = document.getElementById('invalida');
+
+      console.log(elem.value)
+
+      if (email.value == "" ){
+        console.log("AaAAAA");
+          elem2.innerHTML = "올바른 아이디 혹은 패스워드를 입력하세요";
+      }
+      else if(validateEmail(email.value)==false){
+                  elem2.innerHTML = "올바른 아이디 혹은 패스워드를 입력하세요";
+
+      }
+      else if (elem.value ==  'Codingisfun!1'){
+        window.location.replace("https://www.logncoding.com");
+      }else{
+        console.log("bbbbbbb");
+        elem2.innerHTML = "올바른 아이디 혹은 패스워드를 입력하세요";
+      }
+    }
+  </script>
 </body>
 
 </html>
